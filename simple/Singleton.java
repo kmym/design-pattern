@@ -1,21 +1,25 @@
-class MultiThread {
-        public static void main(String[] args) throws InterruptedException {
-                SubThread sub1 = new SubThread();
-                sub1.start();
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
-                SubThread sub2 = new SubThread();
-                sub2.start();
+public class Singleton {
+
+        private static Singleton instance;
+        private String name;
+
+        private Singleton() {
+                SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmss");
+                this.name = "Singleton_" + fmt.format(new Date());
         }
-}
 
-class SubThread extends Thread {
-        public void run() {
-                try {
-                        Singleton o = Singleton.getInstance();
-                        System.out.println(o);
-                        System.out.println(o.hashCode());
-                } catch(InterruptedException e) {
-                        throw new RuntimeException(e);
+        public static Singleton getInstance() throws InterruptedException {
+                if (Singleton.instance == null) {
+                        Singleton.instance = new Singleton();
                 }
+                return Singleton.instance;
+                // return new Singleton();
+        }
+
+        public String toString() {
+                return this.name;
         }
 }
