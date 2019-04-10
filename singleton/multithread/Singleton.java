@@ -11,7 +11,7 @@ public class Singleton {
                 this.name = "Singleton_" + fmt.format(new Date());
         }
 
-        public static Singleton getInstance() throws InterruptedException {
+        public static synchronized Singleton getInstance() throws InterruptedException {
                 if (Singleton.instance == null) {
                         Thread.sleep(3000);
                         Singleton.instance = new Singleton();
