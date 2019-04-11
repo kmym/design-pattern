@@ -11,7 +11,7 @@ public class Singleton {
                 this.name = "Singleton_" + fmt.format(new Date());
         }
 
-        public static Singleton getInstance() throws InterruptedException {
+        public static Singleton getInstance() {
                 if (Singleton.instance == null) {
                         Singleton.instance = new Singleton();
                 }
