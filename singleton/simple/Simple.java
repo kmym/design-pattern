@@ -9,8 +9,5 @@ class Simple {
                 Singleton p = Singleton.getInstance();
                 System.out.println(p);
                 System.out.println(p.hashCode());
-
-
-
         }
 }
